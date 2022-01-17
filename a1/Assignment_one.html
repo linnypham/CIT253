@@ -6,7 +6,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-  <title>page title goes here</title>
+  <title>Computer Pricing</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 	<form>
@@ -17,19 +18,19 @@
 			<td>$1,000</td>
 		</tr>
 		<tr>
-			<td>Processor:</td>
+			<td class="component">Processor:</td>
 			<td><input type="radio" name="Processor1" value="0" checked="checked"/>1.5 Ghz<br/>
 			<input type="radio" name="Processor2" value="400"/>2.0 Ghz (add $400)<br/>
 			<input type="radio" name="Processor3" value="600"/>3.0 Ghz (add $600)<br/></td>
 		</tr>
 		<tr>
-			<td>Hard Drive:</td>
+			<td class="component">Hard Drive:</td>
 			<td><input type="radio" name="HardDrive1" value="0" checked="checked"/>40 GB<br/>
 			<input type="radio" name="HardDrive2" value="200"/>80 GB (add $200)<br/>
 			<input type="radio" name="HardDrive3" value="400"/>100 GB (add $400)<br/></td>
 		</tr>
 		<tr>
-			<td>Memory:</td>
+			<td class="component">Memory:</td>
 			<td>
 				<select id="Memory">
 					<option value="0">1024 MB</option>
@@ -40,11 +41,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Network Card</td>
+			<td class="component">Network Card:</td>
 			<td><input type="checkbox" name="NetworkCard" value="70">(add $70)<br/></td>
 		</tr>
 		<tr>
-			<td>Modem</td>
+			<td class="component">Modem:</td>
 			<td><input type="checkbox" name="Modem" value="50">(add $50)<br/></td>
 		</tr>
 		<tr>
