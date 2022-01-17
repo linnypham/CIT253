@@ -1,0 +1,10 @@
+
+/* Style rules for table elements */
+table{
+	font-family: Arial;
+	font-size: 10pt;
+}
+
+.component{
+	background-color: #F0F0F0;
+}
