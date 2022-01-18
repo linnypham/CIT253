@@ -40,7 +40,7 @@
 
 			// get network card price
 			if (document.getElementById("NetworkCard").checked) {
-				networkcardprice=parseInt(document.getElementById("Networkcard").value);
+				networkcardprice=parseInt(document.getElementById("NetworkCard").value);
 			}
 			else {
 				networkcardprice=0;
@@ -93,11 +93,11 @@
 		</tr>
 		<tr>
 			<td class="component">Network Card:</td>
-			<td><input type="checkbox" name="NetworkCard" value="70">(add $70)<br/></td>
+			<td><input type="checkbox" name="NetworkCard" id="NetworkCard" value="70">(add $70)<br/></td>
 		</tr>
 		<tr>
 			<td class="component">Modem:</td>
-			<td><input type="checkbox" name="Modem" value="50">(add $50)<br/></td>
+			<td><input type="checkbox" name="Modem" id="Modem" value="50">(add $50)<br/></td>
 		</tr>
 		<tr>
 			<td><input type="button" value="Total Price" onClick="GetTotal()"/></td>
