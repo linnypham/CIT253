@@ -1,0 +1,22 @@
+<!-- Browser Script -->
+<script type="text/javascript">
+function Get_Logon()
+{
+  var Account = document.getElementById("Account")
+  var Password = document.getElementById("Password")
+  var Output = document.getElementById("Output")
+  Output.innerHTML = "Your account is <b>" + Account.value 
+                      + "</b> and your password is <b>" 
+                      + Password.value + "</b>."
+}
+
+</script>
+
+<!-- XHTML Code -->
+<div>
+Enter your account:  <input id="Account" type="text"/><br/>
+Enter your password: <input id="Password" type="password"/>
+<input type="button" value="Submit" onclick="Get_Logon()"/><br/>
+
+<span id="Output" style="color:red"></span>
+</div>
