@@ -44,6 +44,5 @@ function GetTotal()
 
 	// get total price
 	totalprice=1000 + processorprice + harddriveprice + memoryprice + networkcardprice + modemprice;
-	document.getElementById("TotalPrice").value=totalprice;
-                      
+	document.getElementById("TotalPrice").value=totalprice;                    
 }
