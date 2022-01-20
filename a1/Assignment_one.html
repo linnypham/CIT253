@@ -61,48 +61,53 @@
 </head>
 <body>
 	<form>
-	<h1>Computer Pricing</h1>
-	<table>
-		<tr>
-			<td>Base Price:</td>
-			<td>$1,000</td>
-		</tr>
-		<tr>
-			<td class="component">Processor:</td>
-			<td><input type="radio" name="Processor" id="Processor1" value="0" checked="checked"/>1.5 Ghz<br/>
-			<input type="radio" name="Processor" id="Processor2" value="400"/>2.0 Ghz (add $400)<br/>
-			<input type="radio" name="Processor" id="Processor3" value="600"/>3.0 Ghz (add $600)<br/></td>
-		</tr>
-		<tr>
-			<td class="component">Hard Drive:</td>
-			<td><input type="radio" name="HardDrive" id="HardDrive1" value="0" checked="checked"/>40 GB<br/>
-			<input type="radio" name="HardDrive" id="HardDrive2" value="200"/>80 GB (add $200)<br/>
-			<input type="radio" name="HardDrive" id="HardDrive3" value="400"/>100 GB (add $400)<br/></td>
-		</tr>
-		<tr>
-			<td class="component">Memory:</td>
-			<td>
-				<select id="Memory">
-					<option value="0">1024 MB</option>
-					<option value="300">2048 MB</option>
-					<option value="500">4096 MB</option>
-					<option value="700">8192 MB</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<td class="component">Network Card:</td>
-			<td><input type="checkbox" name="NetworkCard" id="NetworkCard" value="70"/>(add $70)<br/></td>
-		</tr>
-		<tr>
-			<td class="component">Modem:</td>
-			<td><input type="checkbox" name="Modem" id="Modem" value="50"/>(add $50)<br/></td>
-		</tr>
-		<tr>
-			<td><input type="button" value="Total Price" onclick="GetTotal()"/></td>
-			<td>$<span id="TotalPrice"></span></td>
-		</tr>
-	</table>
-</form>
+		<h1>Computer Pricing</h1>
+		<table>
+			<tr>
+				<td>Base Price:</td>
+				<td>$1,000</td>
+			</tr>
+			<tr>
+				<td class="component">Processor:</td>
+				<td>
+					<input type="radio" name="Processor" id="Processor1" value="0" checked="checked"/>1.5 Ghz<br/>
+					<input type="radio" name="Processor" id="Processor2" value="400"/>2.0 Ghz (add $400)<br/>
+					<input type="radio" name="Processor" id="Processor3" value="600"/>3.0 Ghz (add $600)<br/>
+				</td>
+			</tr>
+			<tr>
+				<td class="component">Hard Drive:</td>
+				<td>
+					<input type="radio" name="HardDrive" id="HardDrive1" value="0" checked="checked"/>40 GB<br/>
+					<input type="radio" name="HardDrive" id="HardDrive2" value="200"/>80 GB (add $200)<br/>
+					<input type="radio" name="HardDrive" id="HardDrive3" value="400"/>100 GB (add $400)<br/>
+				</td>
+			</tr>
+			<tr>
+				<td class="component">Memory:</td>
+				<td>
+					<select id="Memory">
+						<option value="0">1024 MB</option>
+						<option value="300">2048 MB</option>
+						<option value="500">4096 MB</option>
+						<option value="700">8192 MB</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td class="component">Network Card:</td>
+				<td><input type="checkbox" name="NetworkCard" id="NetworkCard" value="70"/>(add $70)<br/></td>
+			</tr>
+			<tr>
+				<td class="component">Modem:</td>
+				<td><input type="checkbox" name="Modem" id="Modem" value="50"/>(add $50)<br/></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="Total Price" onclick="GetTotal()"/></td>
+				<td>$<input type="text" id="TotalPrice"/></td>
+			</tr>
+		</table>
+	</form>
+	<script src="scripts/script.js"></script>
 </body>
 </html>
