@@ -8,8 +8,8 @@
 <body>
 
 <?php 
-  $number_one = "25";
-  $number_two = "32";
+  $number_one = rand(1,100);
+  $number_two = rand(1,100);
   $addition = $number_one + $number_two;
   $difference = $number_two - $number_one;
   $product = $number_one * $number_two;
