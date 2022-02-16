@@ -3,6 +3,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
+	<!--
+		Name: Linh H. Pham
+		File: display_user_info.php
+		Date: 02/15/2022
+		-->
   <title>User Information</title>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
@@ -30,7 +35,7 @@
          <td><?php echo $address; ?></td>
       </tr>
       <tr>
-         <td>City, State, Zip"</td>
+         <td>City, State, Zip:</td>
          <td><?php echo $city.", ".$state.", ".$zip; ?></td>
       </tr>
       <tr>
@@ -42,7 +47,7 @@
          <td><?php echo $email; ?></td>
       </tr>
       <tr>
-         <td><input type="button" name="return" value="Return to input form" onclick="user_input.html"></td>
+         <td><input type="button" name="return" value="Return to input form" onclick="window.location.href='user_input.html'"></td>
       </tr>
    </table>
 </body>
