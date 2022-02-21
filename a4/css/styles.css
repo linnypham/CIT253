@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+
+table, th, td {
+  border: 1px solid;
+}
+
+td:nth-child(odd){
+  font-weight: bold;
+  text-align: left;
+}
+
+td:nth-child(even){
+  text-align: right;
+}

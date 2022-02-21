@@ -9,7 +9,7 @@
 		Date: 02/20/2022
 		-->
   <title>Paycheck Information</title>
-  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
    <?php
@@ -17,52 +17,53 @@
    $lastname = $_POST['lastname'];
    $hours = $_POST['hours'];
    $rate = $_POST['rate'];
+
+   define("FED_CONST", 10.65/100);
+   define("STATE_CONST", 4/100);
+   define("SS_CONST", 3.8/100);
+   define("MEDICARE_CONST", 1.3/100);
+
    $gross = $hours * $rate;
-   $fed_tax = 10.65%  $gross;
-   $state_tax = 4%  $gross;
-   $ss_tax = 3.8%  $gross;
-   $medicare = 1.3%  $gross;
+   $fed_tax = FED_CONST * $gross;
+   $state_tax = STATE_CONST * $gross;
+   $ss_tax = SS_CONST * $gross;
+   $medicare = MEDICARE_CONST * $gross;
    $total_tax = $fed_tax + $state_tax + $ss_tax +$medicare;
    $net = $gross - $total_tax;
    ?>
+
+   <h1>Paycheck Information</h1>
+   <p>Hello <?php echo $firstname." ".$lastname.". ";?>This week you worked <?php echo $hours;?> hours and, based on the pay rate of $<?php echo $rate;?> per hour, your pay check information is:</p>
    <table>
       <tr>
-         <th colspan="2">Paycheck Information</th>
-      </tr>
-	  <tr>
-		<td colspan="2">Hello <?php echo $firstname." ".$lastname.". ";?>This week you worked<?php echo " ".$hours." ";?>hours and, based on the pay rate of $ <?php echo $rate." ";?>per hour, your pay check information is:</td>	
-	  </tr>
-      <tr>
          <td>Gross Pay:</td>
-         <td><?php echo $gross;?></td>
+         <td>$<?php echo $gross;?></td>
       </tr>
       <tr>
          <td>Federal Taxes:</td>
-         <td><?php echo $fed_tax; ?></td>
+         <td>$<?php echo $fed_tax; ?></td>
       </tr>
       <tr>
          <td>State Taxes:</td>
-         <td><?php echo $state_tax; ?></td>
+         <td>$<?php echo $state_tax; ?></td>
       </tr>
       <tr>
          <td>Social Security Taxes:</td>
-         <td><?php echo $ss_tax; ?></td>
+         <td>$<?php echo $ss_tax; ?></td>
       </tr>
       <tr>
          <td>Medicare Taxes:</td>
-         <td><?php echo $medicare; ?></td>
+         <td>$<?php echo $medicare; ?></td>
       </tr>
       <tr>
          <td>Total Taxes:</td>
-         <td><?php echo $total_tax; ?></td>
+         <td>$<?php echo $total_tax; ?></td>
       </tr>
       <tr>
          <td>Net Pay:</td>
-         <td><?php echo $net; ?></td>
-      </tr>
-      <tr>
-         <td><a href='user_input.html'>Return to input form</a></td>
+         <td>$<?php echo $net; ?></td>
       </tr>
    </table>
+   <a href='user_input.html' >Return to input form</a>
 </body>
 </html>
