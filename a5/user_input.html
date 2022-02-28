@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<!--
+		Name: Linh H. Pham
+		File: user_input.html
+		Date: 02/27/2022
+		-->
+	  <title>User Information</title>
+	</head>
+	<body>
+		<form action="display_user_info.php" method="POST">
+			<h1>Please enter your info</h1>
+			<table>
+				<tr>
+					<td>Full Name:</td>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td>Telephone Number:</td>
+					<td><input type="text" name="telephone"></td>
+				</tr>
+				<tr>
+					<td>Email Address:</td>
+					<td><input type="text" name="email"></td>
+				</tr>
+				<tr>
+					<td>Notes:</td>
+					<td><textarea name="notes" rows="4" cols="21"></textarea></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Submit"></td>
+					<td><input type="reset" name="reset" value="Reset"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
