@@ -20,7 +20,7 @@
    list($firstname, $lastname) = explode(' ', $uppername);
 	
    $telephone = $_POST['telephone'];
-   $replacetelephone = str_replace(array('(', ')','–'), '', $telephone);
+   $replacetelephone = str_replace(array('(', ')','–','-'), '', $telephone);
    $nospacephone = str_replace(" ","", $replacetelephone);
    $trimtelephone = trim($nospacephone);
  
@@ -31,7 +31,9 @@
    list($username, $domain) = explode('@', $nospaceemail);
    
    $notes = strip_tags($_POST['notes']);
-	
+   $nospacenote = str_replace(" ","-",$notes);
+   $limitnote = substr($nospacenote,0,30);
+   $breaknote = nl2br($limitnote);
    
    ?>
 
@@ -59,7 +61,7 @@
       </tr>
       <tr>
          <td>Notes:</td>
-         <td><?php echo $notes; ?></td>
+         <td><?php echo $breaknote; ?></td>
       </tr>
    </table>
 </body>
