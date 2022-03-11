@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html 
+  PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<!--
+		Name: Linh H. Pham
+		File: user_input.html
+		Date: 03/09/2022
+		-->
+	  <title>The Coffee House</title>
+	</head>
+	<body>
+		<form action="order.php" method="POST">
+			<h1>The Coffee House</h1>
+			<h2>Order Form</h2>
+			<table>
+				<tr>
+					<td>Coffee:</td>
+					<td>
+						<select name="coffee" id="coffee">
+						<option disabled selected value="0">Select Coffee:</option>
+							<option value="1">Boca Villa</option>
+							<option value="2">South Beach Rhythm</option>
+							<option value="3">Pumpkin Paradise</option>
+							<option value="4">Sumatran Sunset</option>
+							<option value="5">Bali Batur</option>
+							<option value="6">Double Dark</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Type:</td>
+					<td>
+						<input type="radio" name ="type" id="regular" value "regular">
+						<label for="regular">Regular</label><br>
+						<input type="radio" name ="type" id="decaffeinated" value "decaffeinated">
+						<label for="decaffeinated">Decaffeinated</label>
+					</td>
+				</tr>
+				<tr>
+					<td>Quantity (in pounds):</td>
+					<td><input type="text" name="quantity"></td>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td>E-mail address::</td>
+					<td><input type="text" name="email"></td>
+				</tr>
+				<tr>
+					<td>Telephone #:</td>
+					<td><input type="text" name="telephone"></td>
+				</tr>
+				<tr>
+					<td>Address:</td>
+					<td><input type="text" name="address"></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" name="city"></td>
+				</tr>
+				<tr>
+					<td>State:</td>
+					<td><input type="text" name="state"></td>
+				</tr>
+				<tr>
+					<td>Zip:</td>
+					<td><input type="text" name="zip"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Submit"></td>
+					<td><input type="reset" name="reset" value="Reset"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
