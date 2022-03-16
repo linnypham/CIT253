@@ -12,119 +12,136 @@
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
+	
    <?php
+   echo "<h1>The Coffee House</h1>";
+   echo "<br>";
+   
+   $error_name = "Please enter a name.";
+   $error_email = "Please enter an e-mail address.";
+   $error_address = "Please enter an address.";
+   $error_city = "Please enter a city.";
+   $error_state = "Please enter a state.";
+   $error_zip = "Please enter a zip code.";
+   $error_phone = "Please enter a phone number.";
+   $error_coffee =  "Please enter a coffee to be purchased.";
+   $error_type = "Please select regular or decaffeinated.";
+   $error_quantity = "Please enter a numeric value for quantity.";
+   
    $error = 0;
    
-   $name = 0;
    $name = $_POST['name'];
-   if ($name = 0){
-	   $error = 1;
-	   $error_name = "Please enter a name.";
+   if (empty($name)){
+	   $error += 1;
+	   
    }
    
-   $email = 0;
    $email = $_POST['email'];
-   if ($email = 0){
-	   $error = 1;
-	   $error_email = "Please enter an e-mail address.";
+   if (empty($email)){
+	   $error += 1;
+	   
    }
    
-   $address = 0;
    $address = $_POST['address'];
-   if ($address = 0){
-	   $error = 1;
-	   $error_address = "Please enter an address.";
+   if (empty($address)){
+	   $error += 1;
+	   
    }
    
-   $city = 0;
    $city = $_POST['city'];
-   if ($city = 0){
-	   $error = 1;
-	   $error_city = "Please enter a city.";
+   if (empty($city)){
+	   $error += 1;
+	   
    }
    
-   $state = 0;
    $state = $_POST['state'];
-   if ($state = 0){
-	   $error = 1;
-	   $error_state = "Please enter a state.";
+   if (empty($state)){
+	   $error += 1;
+	   
    }
    
-   $zip = 0;
    $zip = $_POST['zip'];
-   if ($zip = 0){
-	   $error = 1;
-	   $error_zip = "Please enter a zip code.";
+   if (empty($zip)){
+	   $error += 1;
+	   
    }
    
-   $phone = 0;
    $phone = $_POST['phone'];
-   if ($phone = 0){
-	   $error = 1;
-	   $error_phone = "Please enter a phone number.";
+   if (empty($phone)){
+	   $error += 1;
+	   
    }
 
-	$coffee = $_POST['coffee'];
 	$coffee_array = array(0, 'Boca Villa','South Beach Rhythm','Pumpkin Paradise','Sumatran Sunset','Bali Batur','Double Dark');
 	$price_array = array(0, 7.99, 8.99, 8.99, 9.99, 10.95, 9.95);
-	$unit_cost = $price_array[$coffee];
-	$coffee_type = $coffee_array[$coffee]
 	
-	if ($coffee = 0){
-	   $error = 1;
-	   $error_coffee = "Please enter a coffee to be purchased.";
+	$coffee = $_POST['coffee'];
+	$unit_cost = $price_array[$coffee];
+	$coffee_type = $coffee_array[$coffee];
+	
+	
+	if (empty($coffee)){
+	   $error += 1;
+	   
    }
    
    $type = $_POST['type'];
-   $coffee_type = 0;
-   if($type == "regular"){
-	   $coffee_type = 0;
+   $coffee_price = 0;
+   if($type == "1"){
+	   $coffee_price = 0;
+	   $coffee_type_extra = "Regular";
    }
-   elseif ($type == "decaffeinated"){
-	   $coffee_type = 1;
+   elseif ($type == "2"){
+	   $coffee_price = 1;
+	   $coffee_type_extra = "Decaffeinated";
    }
    else {
-	   $error = 1;
-	   $error_type = "Please select regular or decaffeinated.";
+	   $error += 1;
+	   echo "<br>";
    }
    
-   $quantity = 0;
+   
    $quantity = $_POST['quantity'];
-   if ($quantity = 0){
-	   $error = 1;
-	   $error_quantity = "Please enter a numeric value for quantity.";
+   if (empty($quantity)){
+	   $quantity = 0;
+	   $error += 1; 
+	   echo "<br>";
    }
    
-   $total = $unit_cost * $quantity;
-   ?>
-
-   <h1>The Coffee House</h1>
-   
-   <?php
-	   if($error = 0){
+   $total = $unit_cost * $quantity + $coffee_price;
+  
+	   if($error == 0){
 			echo "<tr><th>Order Summary</th>";
-			echo "<tr><td>Name:</td>";
+			echo "<br>";
+			echo "<tr><td>Name: </td>";
 			echo "<td>";
 			echo $name;
 			echo "</td></tr>";
-			echo "<tr><td>Address:</td>";
+			echo "<br>";
+			echo "<tr><td>Address: </td>";
 			echo "<td>";
 			echo $address;
 			echo "</td></tr>";
-			echo "<tr><td>City, State, Zip:</td>";
+			echo "<br>";
+			echo "<tr><td>City, State, Zip: </td>";
 			echo "<td>";
 			echo $city.", ".$state.", ".$zip;
 			echo "</td></tr>";
-			echo "<tr><td>Phone#:</td>";
+			echo "<br>";
+			echo "<tr><td>Phone#: </td>";
 			echo "<td>";
 			echo $phone;
 			echo "</td></tr>";
-			echo "<tr><td>Email:</td>";
+			echo "<br>";
+			echo "<tr><td>Email: </td>";
 			echo "<td>";
 			echo $email;
 			echo "</td></tr>";
+			echo "<br>";
 			
-			echo "Order Information";
+			echo "<table>";
+			echo "<p>Order Information</p>";
+			echo "<br>";
 			echo "<table border=\"1\" align=\"center\">";
 			echo "<tr><th>Coffee</th>";
 			echo "<th>Type</th>";
@@ -134,7 +151,7 @@
 			echo "<tr><td>";
 			echo $coffee_type;
 			echo "</td><td>";
-			echo $type;
+			echo $coffee_type_extra;
 			echo "</td><td>";
 			echo $quantity;
 			echo "</td><td>";
@@ -142,22 +159,56 @@
 			echo "</td><td>";
 			echo $total;
 			echo "</td></tr>";
+			echo "</table>";
 	   }
-	   elseif($error = 1){
-		   echo "Errors!!";
-		   echo $error_coffee;
-		   echo $error_type;
-		   echo $error_quantity;
-		   echo $error_name;
-		   echo $error_email;
-		   echo $error_phone;
-		   echo $error_address;
-		   echo $error_city;
-		   echo $error_state;
-		   echo $error_zip;
+	   
+	   else{
+			echo "<h2>Errors!!</h2>";
+			echo "<br>";
+			if (empty($coffee)){
+				echo $error_coffee;
+			}
+			echo "<br>";
+			if ($type == 0){
+				echo $error_type;
+			}
+			echo "<br>";
+			if (empty($quantity)){
+				echo $error_quantity;
+			}
+			echo "<br>";
+			if (empty($name)){
+				echo $error_name;
+			}
+			echo "<br>";
+			if (empty($email)){
+				echo $error_email;
+			}
+			echo "<br>";
+			if (empty($phone)){
+				echo $error_phone;
+			}
+			echo "<br>";
+			if (empty($address)){
+				echo $error_address;
+			}
+			echo "<br>";
+			if (empty($city)){
+				echo $error_city;
+			}
+			echo "<br>";
+			if (empty($state)){
+				echo $error_state;
+			}
+			echo "<br>";
+			if (empty($zip)){
+				echo $error_zip;
+			}
+			
 	   }
+	echo "<p><a href='user_input.html' >Return to order form</a></p>";
    ?>
-
-   <a href='user_input.html' >Return to order form</a>
+	
 </body>
+
 </html>
