@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-	
    <?php
    echo "<h1>The Coffee House</h1>";
    echo "<br>";
@@ -108,10 +107,10 @@
 	   echo "<br>";
    }
    
-   $total = $unit_cost * $quantity + $coffee_price;
+   $total = ($unit_cost + $coffee_price) * $quantity;
   
 	   if($error == 0){
-			echo "<tr><th>Order Summary</th>";
+			echo "<tr><th><h2>Order Summary</h2></th>";
 			echo "<br>";
 			echo "<tr><td>Name: </td>";
 			echo "<td>";
@@ -140,7 +139,7 @@
 			echo "<br>";
 			
 			echo "<table>";
-			echo "<p>Order Information</p>";
+			echo "<center>Order Information</center>";
 			echo "<br>";
 			echo "<table border=\"1\" align=\"center\">";
 			echo "<tr><th>Coffee</th>";
@@ -154,55 +153,75 @@
 			echo $coffee_type_extra;
 			echo "</td><td>";
 			echo $quantity;
-			echo "</td><td>";
+			echo " lb(s)</td><td>$";
 			echo $unit_cost;
-			echo "</td><td>";
+			echo "</td><td>$";
 			echo $total;
 			echo "</td></tr>";
 			echo "</table>";
 	   }
 	   
 	   else{
-			echo "<h2>Errors!!</h2>";
+			echo "<h2><font color=red>Errors!!</font></h2>";
 			echo "<br>";
 			if (empty($coffee)){
+				echo "<font color=red>";
 				echo $error_coffee;
+				echo "</font>";
 			}
 			echo "<br>";
 			if ($type == 0){
+				echo "<font color=red>";
 				echo $error_type;
+				echo "</font>";
 			}
 			echo "<br>";
 			if (empty($quantity)){
+				echo "<font color=red>";
 				echo $error_quantity;
+				echo "</font>";
 			}
 			echo "<br>";
 			if (empty($name)){
+				echo "<font color=red>";
 				echo $error_name;
+				echo "</font>";
 			}
 			echo "<br>";
 			if (empty($email)){
+				echo "<font color=red>";
 				echo $error_email;
+				echo "</font>";
 			}
 			echo "<br>";
 			if (empty($phone)){
+				echo "<font color=red>";
 				echo $error_phone;
+				echo "</font>";
 			}
 			echo "<br>";
 			if (empty($address)){
+				echo "<font color=red>";
 				echo $error_address;
+				echo "</font>";
 			}
 			echo "<br>";
 			if (empty($city)){
+				echo "<font color=red>";
 				echo $error_city;
+				echo "</font>";
 			}
 			echo "<br>";
 			if (empty($state)){
+				echo "<font color=red>";
 				echo $error_state;
+				echo "</font>";
 			}
 			echo "<br>";
 			if (empty($zip)){
+				echo "<font color=red>";
 				echo $error_zip;
+				echo "</font>";
 			}
 			
 	   }
