@@ -5,14 +5,16 @@
 <head>
 	<!--
 		Name: Linh H. Pham
-		File: order.php
-		Date: 03/09/2022
+		File: coffee_order.php
+		Date: 03/20/2022
 		-->
   <title>User Info</title>
   <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-   <?php
+	<?php
+	
+   if($_SERVER['REQUEST_METHOD'] == 'POST'){
    echo "<h1>The Coffee House</h1>";
    echo "<br>";
    
@@ -27,47 +29,47 @@
    $error_type = "Please select regular or decaffeinated.";
    $error_quantity = "Please enter a numeric value for quantity.";
    
-   $error = 0;
+   $error = false;
    
    $name = $_POST['name'];
    if (empty($name)){
-	   $error += 1;
+	   $error = true;
 	   
    }
    
    $email = $_POST['email'];
    if (empty($email)){
-	   $error += 1;
+	    $error = true;
 	   
    }
    
    $address = $_POST['address'];
    if (empty($address)){
-	   $error += 1;
+	    $error = true;
 	   
    }
    
    $city = $_POST['city'];
    if (empty($city)){
-	   $error += 1;
+	    $error = true;
 	   
    }
    
    $state = $_POST['state'];
    if (empty($state)){
-	   $error += 1;
+	    $error = true;
 	   
    }
    
    $zip = $_POST['zip'];
    if (empty($zip)){
-	   $error += 1;
+	    $error = true;
 	   
    }
    
    $phone = $_POST['phone'];
    if (empty($phone)){
-	   $error += 1;
+	    $error = true;
 	   
    }
 
@@ -80,7 +82,7 @@
 	
 	
 	if (empty($coffee)){
-	   $error += 1;
+	    $error = true;
 	   
    }
    
@@ -103,13 +105,13 @@
    $quantity = $_POST['quantity'];
    if (empty($quantity)){
 	   $quantity = 0;
-	   $error += 1; 
+	    $error = true; 
 	   echo "<br>";
    }
    
    $total = ($unit_cost + $coffee_price) * $quantity;
   
-	   if($error == 0){
+	   if($error == false){
 			echo "<tr><th><h2>Order Summary</h2></th>";
 			echo "<table>";
 			echo "<tr><td>Name: </td>";
@@ -221,7 +223,81 @@
 			}
 			
 	   }
-	echo "<p><a href='user_input.html' >Return to order form</a></p>";
+	echo "<p><a href='coffee_order.php' >Return to order form</a></p>";
+   }
+   
+   ?>
+   <?php
+   if($_SERVER['REQUEST_METHOD'] != 'POST' OR $error == true ){
+	   ?>
+   <form action="coffee_order.php" method="POST">
+			<h1>The Coffee House</h1>
+			<h2>Order Form</h2>
+			<table>
+				<tr>
+					<td>Coffee:</td>
+					<td>
+						<select name="coffee" id="coffee">
+							<option <?php if(isset($_POST['coffee']) AND $coffee =="0") echo 'selected="selected"'; ?> value="0">Select Coffee:</option>
+							<option <?php if(isset($_POST['coffee']) AND $coffee =="1") echo 'selected="selected"'; ?> value="1">Boca Villa</option>
+							<option <?php if(isset($_POST['coffee']) AND $coffee =="2") echo 'selected="selected"'; ?> value="2">South Beach Rhythm</option>
+							<option <?php if(isset($_POST['coffee']) AND $coffee =="3") echo 'selected="selected"'; ?> value="3">Pumpkin Paradise</option>
+							<option <?php if(isset($_POST['coffee']) AND $coffee =="4") echo 'selected="selected"'; ?> value="4">Sumatran Sunset</option>
+							<option <?php if(isset($_POST['coffee']) AND $coffee =="5") echo 'selected="selected"'; ?> value="5">Bali Batur</option>
+							<option <?php if(isset($_POST['coffee']) AND $coffee =="6") echo 'selected="selected"'; ?> value="6">Double Dark</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Type:</td>
+					<td>
+						<input type="radio" name ="type" id="1" <?php if(isset($_POST['type']) AND $type =="1") echo 'checked'; ?> value="1">
+						<label for="regular">Regular</label><br>
+						<input type="radio" name ="type" id="2" <?php if(isset($_POST['type']) AND $type =="2") echo 'checked'; ?> value="2">
+						<label for="decaffeinated">Decaffeinated</label>
+						
+					</td>
+				</tr>
+				<tr>
+					<td>Quantity (in pounds):</td>
+					<td><input type="number" name="quantity" value="<?php if(isset($_POST['quantity'])) print $_POST['quantity']; ?>"></td>
+				</tr>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" name="name"  value="<?php if(isset($_POST['name'])) print $_POST['name']; ?>"></td>
+				</tr>
+				<tr>
+					<td>E-mail address::</td>
+					<td><input type="text" name="email" value="<?php if(isset($_POST['email'])) print $_POST['email']; ?>"></td>
+				</tr>
+				<tr>
+					<td>Telephone #:</td>
+					<td><input type="text" name="phone" value="<?php if(isset($_POST['phone'])) print $_POST['phone']; ?>"'></td>
+				</tr>
+				<tr>
+					<td>Address:</td>
+					<td><input type="text" name="address" value="<?php if(isset($_POST['address'])) print $_POST['address']; ?>"></td>
+				</tr>
+				<tr>
+					<td>City:</td>
+					<td><input type="text" name="city" value="<?php if(isset($_POST['city'])) print $_POST['city']; ?>"></td>
+				</tr>
+				<tr>
+					<td>State:</td>
+					<td><input type="text" name="state" value="<?php if(isset($_POST['state'])) print $_POST['state']; ?>"></td>
+				</tr>
+				<tr>
+					<td>Zip:</td>
+					<td><input type="text" name="zip" value="<?php if(isset($_POST['zip'])) print $_POST['zip']; ?>"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="submit" value="Submit"></td>
+					<td><input type="reset" name="reset" value="Reset"></td>
+				</tr>
+			</table>
+		</form>
+   <?php
+   }
    ?>
 	
 </body>
